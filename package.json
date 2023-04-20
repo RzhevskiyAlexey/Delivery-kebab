@@ -1,0 +1,58 @@
+{
+  "name": "delivery-kebab",
+  "version": "1.0.0",
+  "description": "Периодически возникают ситуации, когда заказчик не хочет принимать доставку еды. По регламенту мы должны выкинуть эту еду в мусорку.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "babel-node src/server.js",
+    "start": "webpack -d eval-source-map && babel-node src/server.js",
+    "webpack": "webpack -wd eval-source-map",
+    "launch": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx  sequelize-cli db:migrate && npx sequelize-cli db:seed:all && webpack -d eval-source-map && babel-node src/server.js",
+    "prep-db": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RzhevskiyAlexey/Delivery-kebab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RzhevskiyAlexey/Delivery-kebab/issues"
+  },
+  "homepage": "https://github.com/RzhevskiyAlexey/Delivery-kebab#readme",
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/node": "^7.20.7",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-react": "^7.18.6",
+    "babel-loader": "^9.1.2",
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "morgan": "^1.10.0",
+    "sequelize-cli": "^6.6.0",
+    "webpack": "^5.80.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "axios": "^1.3.6",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "eslint-config-prettier": "^8.8.0",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "pg": "^8.10.0",
+    "pg-hstore": "^2.3.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.10.0",
+    "sequelize": "^6.31.0",
+    "session-file-store": "^1.5.0"
+  }
+}
