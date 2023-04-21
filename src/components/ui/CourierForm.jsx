@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function CourierForm({setAllOrders}) {
+export default function CourierForm({ setAllOrders }) {
   const [input, setInput] = useState({ title: '', body: '', img: '', initial_price: '', sale: '' });
 
   const changeHandler = (event) => {
@@ -20,12 +20,21 @@ export default function CourierForm({setAllOrders}) {
   };
   return (
     <form
-        className="row g-3 needs-validation"
-        noValidate
-        onSubmit={(event) => submitHandler(event)}
-      >
+      className="row g-3 needs-validation"
+      noValidate
+      onSubmit={(event) => submitHandler(event)}
+      style={{
+        marginBottom: '30px',
+        backgroundColor: 'rgb(255, 255, 255 ,0.5)',
+      }}
+    >
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div className="col-md-4">
-          <label htmlFor="validationCustom01" className="form-label">
+          <label
+            htmlFor="validationCustom01"
+            className="form-label"
+            style={{ fontWeight: 'bold', fontSize: '20px' }}
+          >
             Название продукта
           </label>
           <input
@@ -36,11 +45,16 @@ export default function CourierForm({setAllOrders}) {
             value={input.title}
             required
             onChange={changeHandler}
+            placeholder="введи название продукта"
           />
           <div className="valid-feedback">Отлично</div>
         </div>
         <div className="col-md-4">
-          <label htmlFor="validationCustom02" className="form-label">
+          <label
+            htmlFor="validationCustom02"
+            className="form-label"
+            style={{ fontWeight: 'bold', fontSize: '20px' }}
+          >
             Ссылка на изображение
           </label>
           <input
@@ -51,11 +65,27 @@ export default function CourierForm({setAllOrders}) {
             value={input.img}
             required
             onChange={changeHandler}
+            placeholder="добавь фотографию"
           />
           <div className="valid-feedback">Отлично</div>
         </div>
-        <div className="col-md-6">
-          <label htmlFor="validationCustom03" className="form-label">
+      </div>
+
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div
+          className="col-md-6"
+          style={{
+            width: '200px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+          }}
+        >
+          <label
+            htmlFor="validationCustom03"
+            className="form-label"
+            style={{ fontWeight: 'bold', fontSize: "20px"}}
+          >
             Описание
           </label>
           <input
@@ -66,11 +96,24 @@ export default function CourierForm({setAllOrders}) {
             value={input.body}
             required
             onChange={changeHandler}
+            placeholder="введи описание заказа"
           />
           <div className="invalid-feedback">Добавь описание!</div>
         </div>
-        <div className="col-md-3">
-          <label htmlFor="validationCustom04" className="form-label">
+        <div
+          className="col-md-3"
+          style={{
+            width: '200px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+          }}
+        >
+          <label
+            htmlFor="validationCustom04"
+            className="form-label"
+            style={{ fontWeight: 'bold', fontSize: "20px"}}
+          >
             Исходная цена
           </label>
           <input
@@ -81,12 +124,25 @@ export default function CourierForm({setAllOrders}) {
             value={input.initial_price}
             required
             onChange={changeHandler}
+            placeholder="введи цену"
           />
           <div className="invalid-feedback">Добавь цену!</div>
         </div>
-        <div className="col-md-3">
-          <label htmlFor="validationCustom05" className="form-label">
-            Размер скидки в процентах
+        <div
+          className="col-md-3"
+          style={{
+            width: '200px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+          }}
+        >
+          <label
+            htmlFor="validationCustom05"
+            className="form-label"
+            style={{ fontWeight: 'bold', fontSize: "20px"}}
+          >
+            Размер скидки %
           </label>
           <input
             type="text"
@@ -96,14 +152,17 @@ export default function CourierForm({setAllOrders}) {
             value={input.sale}
             required
             onChange={changeHandler}
+            placeholder="введи размер скидки"
           />
           <div className="invalid-feedback">Добавь скидку!</div>
         </div>
-        <div className="col-12">
-          <button className="btn btn-primary" type="submit">
-            Добавить объявление
-          </button>
-        </div>
-      </form>
+      </div>
+
+      <div className="col-12">
+        <button className="btn btn-primary" type="submit">
+          Добавить объявление
+        </button>
+      </div>
+    </form>
   );
 }

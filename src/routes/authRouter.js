@@ -22,8 +22,10 @@ authRouter.post('/signup', async (req, res) => {
 
 authRouter.post('/login', async (req, res) => {
   const { email, password } = req.body;
-
+  
   const foundUser = await User.findOne({ where: { email } });
+  
+  console.log('==================', foundUser);
 
   if (!foundUser) return res.status(401).json({ message: 'No such email' });
 

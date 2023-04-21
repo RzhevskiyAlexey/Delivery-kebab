@@ -5,4 +5,6 @@ body {
   background-position: center center;
   height: 100vh;
   margin: 0;
+  background-attachment: fixed;
 }
+
