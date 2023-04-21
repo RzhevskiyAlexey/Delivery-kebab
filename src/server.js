@@ -5,9 +5,11 @@ import store from 'session-file-store';
 import path from 'path';
 import jsxRender from './utils/jsxRender';
 import indexRouter from './routes/indexRouter';
-// import apiRouter from './routes/apiRouter';
+import apiRouter from './routes/apiRouter';
 import authRouter from './routes/authRouter';
 import resLocals from './middlewares/resLocals';
+import ordersRouter from './routes/ordersRouter'
+import clientRouter from './routes/clientRouter';
 
 require('dotenv').config();
 
@@ -40,5 +42,7 @@ app.use(resLocals);
 
 app.use('/api/auth', authRouter);
 app.use('/', indexRouter);
+app.use('/api/orders', ordersRouter);
+app.use('/api/clients', clientRouter)
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

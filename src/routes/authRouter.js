@@ -27,7 +27,7 @@ authRouter.post('/login', async (req, res) => {
 
   if (!foundUser) return res.status(401).json({ message: 'No such email' });
 
-  if (await bcrypt.compare(password, foundUser.hashpass)) {
+  if (await bcrypt.compare(password, foundUser.password)) {
     req.session.user = foundUser;
     return res.sendStatus(200);
   }
@@ -37,7 +37,7 @@ authRouter.post('/login', async (req, res) => {
 
 authRouter.get('/logout', (req, res) => {
   req.session.destroy();
-  res.clearCookie('students_sid');
+  res.clearCookie('user_sid');
   res.sendStatus(200);
 });
 
