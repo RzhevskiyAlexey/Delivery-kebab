@@ -5,7 +5,6 @@ import store from 'session-file-store';
 import path from 'path';
 import jsxRender from './utils/jsxRender';
 import indexRouter from './routes/indexRouter';
-import apiRouter from './routes/apiRouter';
 import authRouter from './routes/authRouter';
 import resLocals from './middlewares/resLocals';
 import ordersRouter from './routes/ordersRouter'

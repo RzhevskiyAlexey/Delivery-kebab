@@ -34,6 +34,7 @@ router.get('/clients', isClient, async (req, res) => {
     where: { status: false },
     order: [['createdAt', 'DESC']],
   });
+  console.log('===========>', orders);
   const initState = { orders };
   res.render('Layout', initState);
 });
