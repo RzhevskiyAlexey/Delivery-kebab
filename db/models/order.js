@@ -14,12 +14,13 @@ module.exports = (sequelize, DataTypes) => {
   }
   Order.init(
     {
-      name: DataTypes.STRING,
+      title: DataTypes.STRING,
+      body: DataTypes.STRING,
       img: DataTypes.STRING,
       location: DataTypes.TEXT,
       initial_price: DataTypes.INTEGER,
       sale: DataTypes.INTEGER,
-      phone: DataTypes.INTEGER,
+      phone: DataTypes.STRING,
       status: DataTypes.BOOLEAN,
       user_id: DataTypes.INTEGER,
     },

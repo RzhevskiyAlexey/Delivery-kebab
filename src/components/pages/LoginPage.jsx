@@ -9,7 +9,7 @@ export default function LoginPage() {
     try {
       const response = await axios.post('/api/auth/login', formData);
       if (response.status === 200) {
-        window.location = '/drinks';
+        window.location = '/';
       }
     } catch (error) {
       console.log(error);

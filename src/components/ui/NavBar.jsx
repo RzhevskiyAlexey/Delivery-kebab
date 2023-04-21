@@ -35,7 +35,7 @@ export default function NavBar({ user }) {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/client">
+                <a className="nav-link" href="/clients">
                   Client
                 </a>
               </li>

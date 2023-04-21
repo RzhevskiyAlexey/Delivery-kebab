@@ -1,7 +1,10 @@
 import express from 'express';
+import { Order } from '../../db/models';
+import isCourier from '../middlewares/isCourier';
+import isClient from '../middlewares/isClient';
 // import isAuth from '../middlewares/isAuth';
 // import notAuth from '../middlewares/notAuth';
-// import { User, Post } from '../../db/models';
+// import { User } from '../../db/models';
 
 const router = express.Router();
 
@@ -17,19 +20,23 @@ router.get('/login', (req, res) => {
   res.render('Layout');
 });
 
-router.get('/orders', (req, res) => {
-  res.render('Layout');
+router.get('/orders', isCourier, async (req, res) => {
+  const orders = await Order.findAll({
+    where: { status: false },
+    order: [['createdAt', 'DESC']],
+  });
+  const initState = { orders };
+  res.render('Layout', initState);
 });
 
-router.get('/client', (req, res) => {
-  res.render('Layout');
+router.get('/clients', isClient, async (req, res) => {
+  const orders = await Order.findAll({
+    where: { status: false },
+    order: [['createdAt', 'DESC']],
+  });
+  const initState = { orders };
+  res.render('Layout', initState);
 });
-
-// router.get('/students', isAuth, async (req, res) => {
-//   const students = await User.findAll();
-//   const initState = { students };
-//   res.render('Layout', initState);
-// });
 
 // router.get('/posts', isAuth, async (req, res) => {
 //   const allPosts = await Post.findAll({
