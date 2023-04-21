@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import OneCardCLient from '../ui/OneCardClient';
+import ClientForm from '../ui/ClientForm';
 
-export default function ClientAccaunt() {
+export default function ClientAccaunt({ orders, user }) {
+  const [allOrders, setAllOrders] = useState(orders);
+  const cardStyle = { width: '18rem' };
   return (
-    <div className="container mt-5 d-flex justify-content-center">
-      <h1>Welcome to Client Account</h1>
+    <div className="row">
+      {allOrders?.map((el) => (
+        <div key={el.id} className="card" style={cardStyle}>
+          <OneCardCLient order={el} user={user} setAllOrders={setAllOrders} />
+          {/* <ClientForm setAllOrders={setAllOrders} user={user}/> */}
+        </div>
+      ))}
     </div>
   );
 }

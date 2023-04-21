@@ -28,10 +28,11 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       phone: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       status: {
         type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       user_id: {
         type: Sequelize.INTEGER,
