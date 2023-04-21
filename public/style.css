@@ -1,0 +1,16 @@
+.container {
+  overflow: hidden;
+  width: 100%;
+}
+
+
+
+h1 {
+    font-weight: 800;
+    font-size: 5em;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    background-image: url('img/jean-wimmerlin-dcasj22jmCk-unsplash.jpg');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
