@@ -34,31 +34,42 @@ export default function NavBar({ user }) {
                   Home
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/clients">
-                  Client
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/orders">
-                  Courier
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/signup">
-                  Sign up
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/login">
-                  Login
-                </a>
-              </li>
-              <li className="nav-item">
-                <button type="button" className="nav-link" onClick={logoutHandler}>
-                  Logout
-                </button>
-              </li>
+              {user?.role === 'customer' && (
+                <li className="nav-item">
+                  <a className="nav-link" href="/clients">
+                    Client
+                  </a>
+                </li>
+              )}
+
+              {user?.role === 'courier' && (
+                <li className="nav-item">
+                  <a className="nav-link" href="/orders">
+                    Courier
+                  </a>
+                </li>
+              )}
+              {!user?.id && (
+                <>
+                  <li className="nav-item">
+                    <a className="nav-link" href="/signup">
+                      Sign up
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="/login">
+                      Login
+                    </a>
+                  </li>
+                </>
+              )}
+              {user?.id && (
+                <li className="nav-item">
+                  <button type="button" className="nav-link" onClick={logoutHandler}>
+                    Logout
+                  </button>
+                </li>
+              )}
             </ul>
             <form className="d-flex" role="search">
               <input
